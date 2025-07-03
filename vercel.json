@@ -1,0 +1,32 @@
+
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/app/(.*)",
+      "dest": "/app/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/app/$1"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "NEXTAUTH_URL": "@nextauth_url",
+    "NEXTAUTH_SECRET": "@nextauth_secret"
+  },
+  "build": {
+    "env": {
+      "DATABASE_URL": "@database_url",
+      "NEXTAUTH_URL": "@nextauth_url",
+      "NEXTAUTH_SECRET": "@nextauth_secret"
+    }
+  }
+}
